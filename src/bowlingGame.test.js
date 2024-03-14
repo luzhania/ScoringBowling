@@ -9,3 +9,13 @@ describe("simple score", () => {
     expect(g.score()).toEqual(0);
   });
 });
+
+describe("roll score of 1", () => {
+  it("should add the pines of the 20 rolls", () => {
+    let g = new BowlingGame;
+    for(let i = 0; i < 20; i++) {
+      g.roll(1);
+    }
+    expect(g.score()).toEqual(20);
+  });
+});

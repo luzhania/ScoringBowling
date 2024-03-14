@@ -1,8 +1,10 @@
 class BowlingGame {
-  roll(pins) {   
+  Score = 0;
+  roll(pins) {  
+    this.Score+=pins;
   }
   score(){
-    return 0;
+    return this.Score;
   }
 }
 
