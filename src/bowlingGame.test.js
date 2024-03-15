@@ -17,6 +17,10 @@ describe("BowlingGame", () => {
     g.roll(5);
   }
 
+  function rollStrike(){
+    g.roll(10);
+  }
+
   it("should return a score of 0 for the 20 rolls", () => {
     rollMany(20, 0);
     expect(g.score()).toEqual(0);
@@ -35,7 +39,7 @@ describe("BowlingGame", () => {
   });
   
   it("should consider the strike bonus", () => {
-    g.roll(10);
+    rollStrike();
     g.roll(3);
     g.roll(4);
     rollMany(16, 0);
