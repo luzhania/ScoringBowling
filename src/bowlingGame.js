@@ -2,13 +2,15 @@ class BowlingGame {
   rolls = [];
   currentRoll = 0;
 
-  roll(pins) {  
+  roll(pins) {
     this.rolls[this.currentRoll++] = pins;
   }
-  score(){
+  score() {
     let Score = 0;
-    for(let i=0; i< this.rolls.length; i++){
-      Score += this.rolls[i];
+    let i = 0;
+    for (let frame = 0; frame < 10; frame++) {
+      Score += this.rolls[i] + this.rolls[i + 1];
+      i += 2;
     }
     return Score;
   }
