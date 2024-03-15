@@ -12,6 +12,11 @@ describe("BowlingGame", () => {
       g.roll(pins);
   }
 
+  function rollSpare(){
+    g.roll(5);
+    g.roll(5);
+  }
+
   it("should return a score of 0 for the 20 rolls", () => {
     rollMany(20, 0);
     expect(g.score()).toEqual(0);
@@ -23,8 +28,7 @@ describe("BowlingGame", () => {
   });
 
   it("should consider the spare bonus", () => {
-    g.roll(5);
-    g.roll(5);
+    rollSpare();
     g.roll(3);
     rollMany(17, 0);
     expect(g.score()).toEqual(16);
