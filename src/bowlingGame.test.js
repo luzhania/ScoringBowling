@@ -22,11 +22,11 @@ describe("BowlingGame", () => {
     expect(g.score()).toEqual(20);
   });
 
-  // it("should consider the spare bonus", () => {
-  //   g.roll(5);
-  //   g.roll(5);
-  //   g.roll(3);
-  //   rollMany(17, 0);
-  //   expect(g.score()).toEqual(16);
-  // });
+  it("should consider the spare bonus", () => {
+    g.roll(5);
+    g.roll(5);
+    g.roll(3);
+    rollMany(17, 0);
+    expect(g.score()).toEqual(16);
+  });
 });
