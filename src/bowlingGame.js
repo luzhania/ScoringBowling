@@ -9,24 +9,40 @@ class BowlingGame {
     let Score = 0;
     let frameIndex = 0;
     for (let frame = 0; frame < 10; frame++) {
-      if(this.rolls[frameIndex] === 10){
-        Score += 10 + this.rolls[frameIndex + 1] + this.rolls[frameIndex + 2];
+      if(this.isStrike(frameIndex)){
+        Score += 10 + this.strikeBonus(frameIndex);
         frameIndex++;
       }
       else if (this.isSpare(frameIndex)) {
-        Score += 10 + this.rolls[frameIndex + 2];
+        Score += 10 + this.spareBonus(frameIndex);
         frameIndex += 2;
       }
       else {
-        Score += this.rolls[frameIndex] + this.rolls[frameIndex + 1];
+        Score += this.sumOfPinsInFrame(frameIndex);
         frameIndex += 2;
       }
     }
     return Score;
   }
 
+  sumOfPinsInFrame(frameIndex){
+    return this.rolls[frameIndex] + this.rolls[frameIndex + 1]
+  }
+
   isSpare(frameIndex) {
     return this.rolls[frameIndex] + this.rolls[frameIndex + 1] === 10;
+  }
+
+  spareBonus(frameIndex){
+    return this.rolls[frameIndex + 2];
+  }
+
+  isStrike(frameIndex) {
+    return this.rolls[frameIndex] === 10;
+  }
+
+  strikeBonus(frameIndex){
+    return this.rolls[frameIndex + 1] + this.rolls[frameIndex + 2];
   }
 }
 
