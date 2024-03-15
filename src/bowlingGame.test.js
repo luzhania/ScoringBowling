@@ -33,4 +33,12 @@ describe("BowlingGame", () => {
     rollMany(17, 0);
     expect(g.score()).toEqual(16);
   });
+  
+  it("should consider the strike bonus", () => {
+    g.roll(10);
+    g.roll(3);
+    g.roll(4);
+    rollMany(16, 0);
+    expect(g.score()).toEqual(24);
+  });
 });

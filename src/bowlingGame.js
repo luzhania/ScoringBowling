@@ -9,13 +9,18 @@ class BowlingGame {
     let Score = 0;
     let frameIndex = 0;
     for (let frame = 0; frame < 10; frame++) {
-      if (this.isSpare(frameIndex)) {
+      if(this.rolls[frameIndex] === 10){
+        Score += 10 + this.rolls[frameIndex + 1] + this.rolls[frameIndex + 2];
+        frameIndex++;
+      }
+      else if (this.isSpare(frameIndex)) {
         Score += 10 + this.rolls[frameIndex + 2];
+        frameIndex += 2;
       }
       else {
         Score += this.rolls[frameIndex] + this.rolls[frameIndex + 1];
+        frameIndex += 2;
       }
-      frameIndex += 2;
     }
     return Score;
   }
