@@ -1,10 +1,16 @@
 class BowlingGame {
-  Score = 0;
+  rolls = [];
+  currentRoll = 0;
+
   roll(pins) {  
-    this.Score+=pins;
+    this.rolls[this.currentRoll++] = pins;
   }
   score(){
-    return this.Score;
+    let Score = 0;
+    for(let i=0; i< this.rolls.length; i++){
+      Score += this.rolls[i];
+    }
+    return Score;
   }
 }
 
